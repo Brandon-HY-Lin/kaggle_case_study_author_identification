@@ -52,3 +52,7 @@ Case study of Kaggle competition "Spooky Author Identification"
   - sklearn.metrics.accuracy_score(y, prediction)
 - Grid Search
   - sklearn.model_selection.GridSearchCV()
+
+
+# Reference:
+- [Complete Guide to Parameter Tuning in XGBoost with codes in Python](https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/)
