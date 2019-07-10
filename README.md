@@ -1,6 +1,7 @@
 # kaggle_case_study_author_identification
 Case study of Kaggle competition "Spooky Author Identification"
 
+    
 # Process of Tuning Hyperparameters of XGBoost
   - step 1: tune learning_rate and n_estimator
     - learning_rate:
@@ -52,6 +53,20 @@ Case study of Kaggle competition "Spooky Author Identification"
   - sklearn.metrics.accuracy_score(y, prediction)
 - Grid Search
   - sklearn.model_selection.GridSearchCV()
+- Reduce the Feature Size
+  - SVD (Singular Value Decomposition)
+    - sklearn.decomposition.TruncatedSVD(n_components, n_iter).fit()
+    - sklearn.decomposition.TruncatedSVD(n_components, n_iter).fit().transform()
+- Plot
+  - seaborn.pairplot()
+  - Histogram
+    - seaborn.distplot()
+    - pandas.dataframe.plot.hist()
+    - pandas.dataframe.plot(kind='hist')
+  - Box Plot
+    - seaborn.boxplot()
+  - Scatter Plot
+    - seaborn.scatterplot()
 
 
 # Reference:
