@@ -67,6 +67,34 @@ Case study of Kaggle competition "Spooky Author Identification"
     - seaborn.boxplot()
   - Scatter Plot
     - seaborn.scatterplot()
+  - Plot Encodded String
+    - pandas.series.Series.value_counts().plot.bar()
+  - Violin Plot
+    - seaborn.violinplot(x='author', y='text', data=train_df)
+- Stopwords/Punctuations
+    - Stopwords
+        - nltk.corpora.stopwords.words('english')
+    - Punctuations
+        - string.punctuation
+        
+- Data Manipulation
+    - Group Data
+        - pandas.DataFrame.groupby(column_name)
+            ```
+            # get all groups
+            groups = train_df['author'].groupby()
+            
+            # access each group and its column_name
+            for name, g in groups:
+                
+                for index, row in g:
+                    print(row['text'])
+            ```
+    - Encode String to Number
+        - pandas.DataFrame.map({'str1': 0, 'str2': 1})
+            ```
+            train_df['author'].map({'EAP':0, 'HPL':1, 'MWS':2})
+            ```
 
 
 # Reference:
