@@ -1,7 +1,64 @@
 # kaggle_case_study_author_identification
 Case study of Kaggle competition "Spooky Author Identification"
 
+# Feature Engineering
+- Meta Features
+    - Features that are extracted from the text like number of words, stopwords, and punctuations.
+        1. Number of words.
+        1. Number of unique words.
+        1. Number of characters.
+        1. Number of stopwords.
+        1. Number of punctuations.
+        1. Number of upper case words.
+        1. Number of title case words.
+        1. Average length of words.
+- Text-Based Features
+    - BOW
+    - TF-IDF
+- Results
     
+<table>
+  <tr>
+    <th>Features</th>
+    <th>Meta</th>
+    <th colspan="2">TF-IDF</th>
+    <th colspan="2">SVD</th>
+    <th colspan="2">SVD+Meta</th>
+  </tr>
+  <tr>
+    <td>Method</td>
+    <td>XGBoost</td>
+    <td>XGBoost</td>
+    <td>MultinomialNB</td>
+    <td>XGBoost</td>
+    <td>GaussianNB</td>
+    <td>XGBoost</td>
+    <td>GaussianNB</td>
+  </tr>
+  <tr>
+    <td>Accuracy</td>
+    <td>0.518</td>
+    <td>0.606</td>
+    <td>0.989</td>
+    <td>0.697</td>
+    <td>0.451</td>
+    <td>0.716</td>
+    <td>0.453</td>
+  </tr>
+  <tr>
+    <td>Log Loss</td>
+    <td>0.97</td>
+    <td>0.912</td>
+    <td>0.466</td>
+    <td>0.737</td>
+    <td>6.027</td>
+    <td>0.709</td>
+    <td>5.795</td>
+  </tr>
+</table>    
+
+
+
 # Process of Tuning Hyperparameters of XGBoost
   - step 1: tune learning_rate and n_estimator
     - learning_rate:
