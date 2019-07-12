@@ -45,14 +45,33 @@ Case study of Kaggle competition "Spooky Author Identification"
 # Key APIs
 - Split Dataset
   - sklearn.model_selection.train_test_split()
+  - K-Fold
+    - sklearn.model_selection.StratifiedKFold()
+    - sklearn.model_selection.KFold()
 - XGBoost (Extreme Gradient Boost)
   - xgboost.XGBClassifier()
+    - Get Softmax Result
+        - xgboost.XGBClassifier().fit(data).predict_proba(X)
+    - Get Prediction
+        - xgboost.XGBClassifier().fit(data).predict(X)
   - xgboost.XGBRegressor()
+  - Print Importance of Features
+    - xgboost.plot_importance()
+- Naive Bayes
+    - sklearn.naive_bayes.MultinominalNB()
+    - sklearn.naive_bayes.GaussianNB()
 - Metrics
   - sklearn.metrics.classification_report(y, prediction)
   - sklearn.metrics.accuracy_score(y, prediction)
+  - sklearn.metrics.log_loss(y, pred_prob)
 - Grid Search
   - sklearn.model_selection.GridSearchCV()
+- Text-Document-Based Vectorization
+    - BOW:
+        - sklearn.feature_extraction.text.CountVectorizer()
+    - TF-IDF:
+        - sklearn.feature_extraction.text.TfidfVectorizer()
+        - sklearn.feature_extraction.text.TfidfVectorizer().fit().vocabulary_
 - Reduce the Feature Size
   - SVD (Singular Value Decomposition)
     - sklearn.decomposition.TruncatedSVD(n_components, n_iter).fit()
@@ -71,6 +90,9 @@ Case study of Kaggle competition "Spooky Author Identification"
     - pandas.series.Series.value_counts().plot.bar()
   - Violin Plot
     - seaborn.violinplot(x='author', y='text', data=train_df)
+  - Heat Map for Plotting Confusion Matrix
+    - sklearn.metrics.confusion_matrix()
+    - seaborn.heatmap()
 - Stopwords/Punctuations
     - Stopwords
         - nltk.corpora.stopwords.words('english')
