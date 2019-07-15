@@ -155,7 +155,9 @@ Case study of Kaggle competition "Spooky Author Identification"
         - nltk.corpora.stopwords.words('english')
     - Punctuations
         - string.punctuation
-        
+- Encodding
+    - keras.utils.to_categorical()
+    
 - Data Manipulation
     - Group Data
         - pandas.DataFrame.groupby(column_name)
