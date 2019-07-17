@@ -175,7 +175,8 @@ Case study of Kaggle competition "Spooky Author Identification"
         - string.punctuation
 - Encodding
     - keras.utils.to_categorical()
-    
+- Pad Sequence:
+    - keras.preprocessing.sequence.pad_sequences()
 - Data Manipulation
     - Group Data
         - pandas.DataFrame.groupby(column_name)
