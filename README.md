@@ -107,7 +107,7 @@ Case study of Kaggle competition "Spooky Author Identification"
       - default value: 1.0
       - suggested initial value: 0.8
       - suggested range: [0.6, 1.0]
-    - min_child_weight:
+    - colsample_bytree:
       - default value: 1.0
       - suggested initial value: 0.8
       - suggested range: [0.6, 1.0]
