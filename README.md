@@ -2,6 +2,7 @@
 Case study of Kaggle competition "Spooky Author Identification"
 
 # Feature Engineering
+- [notebook](https://github.com/Brandon-HY-Lin/kaggle_case_study_author_identification/blob/master/step_2_feature_engineering.ipynb)
 - Meta Features
     - Features that are extracted from the text like number of words, stopwords, and punctuations.
         1. Number of words.
@@ -23,7 +24,7 @@ Case study of Kaggle competition "Spooky Author Identification"
     <th>Meta</th>
     <th colspan="2">TF-IDF</th>
     <th colspan="2">SVD</th>
-    <th colspan="2">SVD+Meta</th>
+    <th colspan="3">SVD+Meta</th>
   </tr>
   <tr>
     <td>Method</td>
@@ -34,6 +35,7 @@ Case study of Kaggle competition "Spooky Author Identification"
     <td>GaussianNB</td>
     <td>XGBoost</td>
     <td>GaussianNB</td>
+    <td>DNN (2 FCs)</td>
   </tr>
   <tr>
     <td>Accuracy</td>
@@ -44,6 +46,7 @@ Case study of Kaggle competition "Spooky Author Identification"
     <td>0.451</td>
     <td>0.716</td>
     <td>0.453</td>
+    <td>0.6645</td>
   </tr>
   <tr>
     <td>Log Loss</td>
@@ -54,12 +57,28 @@ Case study of Kaggle competition "Spooky Author Identification"
     <td>6.027</td>
     <td>0.709</td>
     <td>5.795</td>
+    <td>0.7784</td>
   </tr>
-</table>    
+</table>
+ 
+ # Deep Learning Models with Word Embedding 
+- [notebook](https://github.com/Brandon-HY-Lin/kaggle_case_study_author_identification/blob/master/step_3_word_embedding_and_keras.ipynb)
+
+- Results
 
 
+|          | DNN + <br>Average Pooling | RNN     | Bidirectional<br>RNN |
+|----------|-----------------------|---------|-------------------|
+| Accuracy | 0.9916                | 0.4037  | 0.9892            |
+| Log Loss | 0.0327                | 1.0878  | 0.0325            |
+| Epochs   | 100                   | 5       | 20                |
+| CPU Time | 14min 19s             | 3min 8s | 35min 43s         |
+ 
 
-# Process of Tuning Hyperparameters of XGBoost
+# XGBoost
+- [notebook](https://github.com/Brandon-HY-Lin/kaggle_case_study_author_identification/blob/master/step_0_xgboost_classification_tuning_params.ipynb)
+
+-Process of Tuning Hyperparameters of XGBoost
   - step 1: tune learning_rate and n_estimator
     - learning_rate:
       - default value: 0.1
@@ -88,7 +107,7 @@ Case study of Kaggle competition "Spooky Author Identification"
       - default value: 1.0
       - suggested initial value: 0.8
       - suggested range: [0.6, 1.0]
-    - min_child_weight:
+    - colsample_bytree:
       - default value: 1.0
       - suggested initial value: 0.8
       - suggested range: [0.6, 1.0]
@@ -97,7 +116,6 @@ Case study of Kaggle competition "Spooky Author Identification"
       - default value: 0.0
       - suggested initial value: 0.0
       - suggested values: [1e-5, 1e-2, 0.0, 0.1, 1.0, 100.0]
-      
 
 # Key APIs
 - Split Dataset
@@ -157,7 +175,8 @@ Case study of Kaggle competition "Spooky Author Identification"
         - string.punctuation
 - Encodding
     - keras.utils.to_categorical()
-    
+- Pad Sequence:
+    - keras.preprocessing.sequence.pad_sequences()
 - Data Manipulation
     - Group Data
         - pandas.DataFrame.groupby(column_name)
